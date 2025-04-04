@@ -1,13 +1,18 @@
 package handlers
 
-import "net/http"
+import (
+	"net/http"
+	"practicegolangweb/helpers"
+)
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
 	}
-	w.Write([]byte("Welcome to the Home Page!"))
+	// w.Write([]byte("Welcome to the Home Page!"))
+
+	helpers.RenderTemplate(w, "index.html", nil)
 }
 
 func ProductsHandler(w http.ResponseWriter, r *http.Request) {
