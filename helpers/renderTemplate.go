@@ -7,7 +7,7 @@ import (
 
 func RenderTemplate(w http.ResponseWriter, templateName string, data interface{}) {
 	// Parse the template file
-	tmpl, err := template.ParseFiles("templates/" + templateName)
+	tmpl, err := template.ParseFiles("views/" + templateName)
 	if err != nil {
 		http.Error(w, "Error parsing template", http.StatusInternalServerError)
 		return
